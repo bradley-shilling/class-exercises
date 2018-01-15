@@ -39,6 +39,7 @@ actual command from other text in Unix documentation.
 
 $ pwd
 <type or copy-paste the result here>
+/Users/bradleyshilling/workspace/exercises/m1-w1d1-intro-to-tools-exercises/java-helloworld
 
 The present working directory displayed should match the directory you changed 
 to in Exercise 1.  Note, the two may not match at the very beginning if you
@@ -55,6 +56,12 @@ changes directory, and the "pwd" command reflects this.
 
 $ ls -la
 <type or copy-paste the result here>
+total 8
+drwxr-xr-x  5 bradleyshilling  staff   170 Jan 15 14:27 .
+drwxr-xr-x  5 bradleyshilling  staff   170 Jan 15 14:54 ..
+drwxr-xr-x  3 bradleyshilling  staff   102 Jan 15 14:27 database
+-rwxr-xr-x  1 bradleyshilling  staff  1091 Jan 15 14:27 pom.xml
+drwxr-xr-x  4 bradleyshilling  staff   136 Jan 15 14:27 src
 
 
 ----
@@ -63,6 +70,8 @@ $ ls -la
 ----
 
 <type or copy-paste your answer here>
+. current directory
+.. parent directory
 
 ----
 6.  What are the names of the files, including any dot-files, displayed in the
@@ -70,6 +79,7 @@ $ ls -la
 ----
 
 <type or copy-paste your answer here>
+pom.xml
 
 
 ----
@@ -78,6 +88,10 @@ $ ls -la
 ----
 
 <type or copy-paste your answer here>
+. java-helloworld
+.. m1-w1d1-intro-to-tools-exercises
+database
+src
 
 
 ----
