@@ -526,6 +526,6 @@ public class AfternoonExercises {
 		}
 
 	}
-	/* line 593 of AfternoonExcersizeTest.java contains an error should read "		assertEquals("Input: luckySum(13, 1, 3)", 0, exercises.luckySum(13, 1, 3));" */
+	/* line 593 of AfternoonExcersizeTest.java contains an error and should read "		assertEquals("Input: luckySum(13, 1, 3)", 0, exercises.luckySum(13, 1, 3));" */
 
 }
