@@ -590,7 +590,7 @@ public class AfternoonExercisesTest {
 		assertEquals("Input: luckySum(1, 2, 3)", 6, exercises.luckySum(1, 2, 3));
 		assertEquals("Input: luckySum(1, 2, 13)", 3, exercises.luckySum(1, 2, 13));
 		assertEquals("Input: luckySum(1, 13, 3)", 1, exercises.luckySum(1, 13, 3));
-		assertEquals("Input: luckySum(13, 1, 3)", 3, exercises.luckySum(13, 1, 3));
+		assertEquals("Input: luckySum(13, 1, 3)", 0, exercises.luckySum(13, 1, 3));
 		assertEquals("Input: luckySum(13, 13, 3)", 0, exercises.luckySum(13, 13, 3));
 		assertEquals("Input: luckySum(13, 13, 13)", 0, exercises.luckySum(13, 13, 13));
 	}
