@@ -152,6 +152,7 @@ public class AfternoonExercises {
 		} else {
 			for (int i = 0; i < nums.length; i++) {
 				if (nums[i] == 13) {
+					i++;
 				} else {
 					sumOfAll = sumOfAll + nums[i] ;
 				}
