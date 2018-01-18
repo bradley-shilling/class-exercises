@@ -3,25 +3,26 @@ package com.techelevator;
 public class AfternoonExercises {
 	
 	/*
-	 1. Given an array of ints, return true if 6 appears as either the first or last element in the array. 
+	 1. Given an array of ints, return true if 6 appears as either the first or last
+	 element in the array. 
 	 The array will be length 1 or more.
 	 firstLast6([1, 2, 6]) → true
 	 firstLast6([6, 1, 2, 3]) → true
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		return false;
+		return nums[0] == 6 || nums[nums.length - 1] == 6;
 	}
 
 	/*
-	 2. Given an array of ints, return true if the array is length 1 or more, and the first element and
-	 the last element are equal.
+	 2. Given an array of ints, return true if the array is length 1 or more, and 
+	 the first element and the last element are equal.
 	 sameFirstLast([1, 2, 3]) → false
 	 sameFirstLast([1, 2, 3, 1]) → true
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		return false;
+		return nums.length >= 1 && nums[0] == nums[nums.length - 1] ;
 	}
 
 	/*
@@ -29,7 +30,7 @@ public class AfternoonExercises {
 	 makePi() → [3, 1, 4]
 	 */
 	public int[] makePi() {
-		return new int[] {};
+		return new int[] {3, 1, 4};
 	}
 
 	/*
@@ -40,7 +41,7 @@ public class AfternoonExercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		return false;
+		return a[0] == b[0] || a[a.length - 1] == b[b.length - 1] ;
 	}
 
 	/*
@@ -50,18 +51,18 @@ public class AfternoonExercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 	public int sum3(int[] nums) {
-		return 0;
+		return nums[0] + nums[1] + nums[2];
 	}
 
 	/*
-	 6. Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2, 3} 
-	 yields {2, 3, 1}.
+	 6. Given an array of ints length 3, return an array with the elements 
+	 "rotated left" so {1, 2, 3} yields {2, 3, 1}.
 	 rotateLeft3([1, 2, 3]) → [2, 3, 1]
 	 rotateLeft3([5, 11, 9]) → [11, 9, 5]
 	 rotateLeft3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] rotateLeft3(int[] nums) {
-		return new int[] {};
+		return new int[] {nums[1], nums[2], nums[0]};
 	}
 
 	/*
@@ -72,29 +73,39 @@ public class AfternoonExercises {
 	 reverse3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] reverse3(int[] nums) {
-		return new int[] {};
+		return new int[] {nums[2], nums[1], nums[0]};
 	}
 
 	/*
-	 8. Given an array of ints length 3, figure out which is larger between the first and last elements 
-	 in the array, and set all the other elements to be that value. Return the changed array.
+	 8. Given an array of ints length 3, figure out which is larger between the first and last 
+	 elements in the array, and set all the other elements to be that value. 
+	 Return the changed array.
 	 maxEnd3([1, 2, 3]) → [3, 3, 3]
 	 maxEnd3([11, 5, 9]) → [11, 11, 11]
 	 maxEnd3([2, 11, 3]) → [3, 3, 3]
 	 */
 	public int[] maxEnd3(int[] nums) {
-		return new int[] {};
+		if (nums[0] < nums[nums.length - 1]) {
+			return new int[] { nums[nums.length - 1], nums[nums.length - 1], nums[nums.length - 1] };
+		} else {
+			return new int[] { nums[0], nums[0], nums[0] };
+		}
+
 	}
 
 	/*
-	 9. Given an array of ints, return the sum of the first 2 elements in the array. If the array length
-	  is less than 2, just sum up the elements that exist, returning 0 if the array is length 0.
+	 9. Given an array of ints, return the sum of the first 2 elements in the array. If the array 
+	 length is less than 2, just sum up the elements that exist, returning 0 if the array is length 0.
 	 sum2([1, 2, 3]) → 3
 	 sum2([1, 1]) → 2
 	 sum2([1, 1, 1, 1]) → 2
 	 */
 	public int sum2(int[] nums) {
-		return 0;
+		if (nums.length == 0) {
+			return 0;
+		} else {
+			return nums[0] + nums[1];
+		}
 	}
 
 	/*
@@ -105,7 +116,7 @@ public class AfternoonExercises {
 	 middleWay([5, 2, 9], [1, 4, 5]) → [2, 4]
 	 */
 	public int[] middleWay(int[] a, int[] b) {
-		return new int[] {};
+		return new int[] {a[1],b[1]};
 	}
 
 	/*
@@ -116,19 +127,38 @@ public class AfternoonExercises {
 	 countEvens([1, 3, 5]) → 0
 	 */
 	public int countEvens(int[] nums) {
-		return 0;
+		int numberOfEvenNumbers = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if ((nums[i] % 2) != 1 ) {
+				numberOfEvenNumbers++;
+			}
+		}
+		return numberOfEvenNumbers;
+		
 	}
 
 	/*
-	 12. Return the sum of the numbers in the array, returning 0 for an empty array. Except the number 
-	 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do 
-	 not count.
+	 12. Return the sum of the numbers in the array, returning 0 for an empty array. Except the 
+	 number 13 is very unlucky, so it does not count and numbers that come immediately 
+	 after a 13 also do not count.
 	 sum13([1, 2, 2, 1]) → 6
 	 sum13([1, 1]) → 2
 	 sum13([1, 2, 2, 1, 13]) → 6
 	 */
 	public int sum13(int[] nums) {
-		return 0;
+		int sumOfAll = 0;
+		if (nums.length == 0) {
+			return 0;
+		} else {
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] == 13) {
+				} else {
+					sumOfAll = sumOfAll + nums[i] ;
+				}
+			}
+			
+		}
+		return sumOfAll;
 	}
 
 	/*
@@ -138,7 +168,13 @@ public class AfternoonExercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-		return false;
+	
+		for(int i = 0; i < nums.length-1; i++)
+		  {
+		  	if(nums[i] == 2 && nums[i+1] == 2)
+		  		return true;
+		  }
+		  return false;
 	}
 	
 	/*
@@ -148,7 +184,12 @@ public class AfternoonExercises {
 	 lucky13([1, 2, 4]) → false
 	 */
 	public boolean lucky13(int[] nums) {
-		return false;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1 || nums [i] == 3) {
+				return false;
+			} 
+		}
+		return true;
 	}
 
 	/*
@@ -158,7 +199,17 @@ public class AfternoonExercises {
 	 sum28([1, 2, 3, 4]) → false
 	 */
 	public boolean sum28(int[] nums) {
+		int sumOfTwos = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 2 ) {
+				sumOfTwos = sumOfTwos + 2;
+			}
+		}
+		if (sumOfTwos == 8) {
+			return true;
+		} else {
 		return false;
+		}
 	}
 
 }
