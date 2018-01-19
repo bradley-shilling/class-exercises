@@ -42,8 +42,7 @@ public class DecimalToBinary {
 			System.out.print("" + listOfDec[i] + " in binary is ");
 			//print 0 if 0
 			if (listOfDecAsInt == 0) {
-				System.out.print("0");
-				System.out.printf("%n");
+				System.out.printf ("0 %n");
 			} else {
 			
 				for (int b = 1; listOfDecAsInt > 0; b++) {
