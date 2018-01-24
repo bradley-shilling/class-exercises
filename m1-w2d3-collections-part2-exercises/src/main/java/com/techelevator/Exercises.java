@@ -326,9 +326,8 @@ public class Exercises {
 			}
 			lastTwoCount.put(word, count); // add to map
 		}
-		
 		//return results
 		return lastTwoCount;
 	}
-	//down
+	//done
 }
