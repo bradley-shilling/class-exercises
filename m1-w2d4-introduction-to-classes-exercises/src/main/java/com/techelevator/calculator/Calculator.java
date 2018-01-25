@@ -12,22 +12,22 @@ public class Calculator {
 	//3.create methods
 
 	public int add(int addend) {
-		currentValue = (currentValue + addend);
-		return currentValue;		
+		//currentValue = (currentValue + addend);
+		//return currentValue;
+		return currentValue += addend;		
 	};
 	public int multiply(int multiplier) {
-		currentValue = (currentValue * multiplier);
-		return currentValue;
+		//currentValue = (currentValue * multiplier);
+		//return currentValue;
+		return currentValue*=multiplier;
 	};
 	public int subtract(int subtrahend) {
-		currentValue = (currentValue - subtrahend);
-		return currentValue;
+		//currentValue = (currentValue - subtrahend);
+		//return currentValue;
+		return currentValue-=subtrahend;
 	};
 	public int power(int exponent) {
-		
-			currentValue = ((int) Math.pow(currentValue, exponent));
-		return currentValue;
-		
+		return currentValue = ((int) Math.pow(currentValue, exponent));
 	};
 	public void reset() {
 		currentValue = 0;
