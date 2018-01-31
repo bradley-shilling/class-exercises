@@ -63,19 +63,15 @@ public class HomeworkAssignment {
     public String getLetterGrade() {
         double percentage = (double)totalMarks / possibleMarks;
 
-        if (percentage >= 0.6) {
-            return "D";
-        }
-        if (percentage >= 0.7) {
-            return "C";
-        }
-        if (percentage >= 0.8) {
-            return "B";
-        }
         if (percentage >= 0.9) {
             return "A";
-        }                                                
-        else {
+        } else  if (percentage >= 0.8) {
+            return "B";
+        } else if (percentage >= 0.7) {
+            return "C";
+        } else if (percentage >= 0.6) {
+            return "D";
+        } else {
             return "F";
         }
         
