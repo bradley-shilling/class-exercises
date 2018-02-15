@@ -9,9 +9,7 @@ INSERT INTO actor (first_name, last_name)
 VALUES ('LISA', 'BYWAY');
 COMMIT;
 
-ROLLBACK;
-
-
+--test
 SELECT actor_id 
 FROM actor
 WHERE first_name = 'HAMPTON' AND last_name = 'AVENUE';
@@ -35,7 +33,6 @@ VALUES ('Euclidean PI',
 
 COMMIT;
 
-ROLLBACK;
 
 
 
@@ -71,8 +68,6 @@ WHERE (first_name = 'HAMPTON' AND last_name = 'AVENUE') OR (first_name = 'LISA' 
 
 COMMIT;
 
-ROLLBACK;
-
 
 
 
@@ -87,7 +82,7 @@ SELECT *
 FROM category;
 
 COMMIT;
-ROLLBACK;
+
 
 
 
@@ -106,18 +101,17 @@ SELECT category_id
 FROM film_category
 WHERE film_id = 274 or film_id = 494 or film_id = 714 or film_id = 996 or film_id = 1001;
 
+
+
 BEGIN TRANSACTION;
-
-
 INSERT INTO film_category (film_id, category_id) 
 VALUES (274, 17),
  (494, 17),
  (714, 17),
  (996, 17),
  (1001, 17)
-
 COMMIT;
-ROLLBACK;
+
 
 
 
@@ -138,7 +132,6 @@ FROM film_category
 WHERE category_id = 17 AND film.film_id = film_category.film_id;
 COMMIT;
 
-ROLLBACK;
 
 
 
@@ -164,9 +157,6 @@ COMMIT;
 
 
 
-ROLLBACK;
-
-
 
 
 
@@ -185,7 +175,7 @@ WHERE film_id = 1001;
 ROLLBACK;
 -- No film_actor refernces the film
 
-COMMIT;
+
 
 
 
@@ -203,7 +193,7 @@ DELETE FROM category
 WHERE category_id = 17;
 ROLLBACK;
 -- no it is linked to the film_category table by its key
-COMMIT;
+
 
 
 
@@ -220,7 +210,7 @@ DELETE FROM film_category
 WHERE category_id = 17;
 --Yes this film_category is pulling column name from category and is linked only as a top level table  to the category by the category_id
 COMMIT;
-ROLLBACK;
+
 
 
 
