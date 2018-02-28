@@ -13,6 +13,7 @@
 	<body>
 		<h1>Exercise 3 - Echo</h1>
 		
+		
 		<ul>
 		<%--
 			Given two query string parameters, "word" and "count":
@@ -24,6 +25,28 @@
 			 
 			See exercise3-echo.png for example output
 		 --%>
+		 
+		 
+		
+		<c:if test="${empty param.word}">
+    			<c:set var="word" value="Hello." />
+		</c:if>
+		<c:if test="${not empty param.word}">
+    			<c:set var="word" value="${param.word}" />
+		</c:if>
+		<c:if test="${empty param.count}">
+    			<c:set var="count" value="5" /> 
+		</c:if>
+		<c:if test="${not empty param.count}">
+    			<c:set var="count" value="${param.count}" />
+		</c:if>
+		 
+		 
+		 
+		 <c:forEach begin="1" end="${param.count}" step="1" var="sizeDecrease">
+				 <li style="font-size: ${param.count - sizeDecrease}px; line-height: ${param.count - sizeDecrease}px;"><c:out value="${word}" /></li>	
+		</c:forEach>
+		 
 		</ul>
 		
 	</body>

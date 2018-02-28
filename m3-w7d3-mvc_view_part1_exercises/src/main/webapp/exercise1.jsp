@@ -37,6 +37,34 @@
 				
 				see exercise1-fizzbuzz.png for example output
 			 --%>
+			 
+			 	<c:forEach begin="1" end="100" step="1" var="number">
+				<c:choose>
+					<c:when test="${number % 3 == 0 && number % 5 == 0}">
+						<c:set var='listClassAttribute' value='fizzbuzz' />
+						<li class="${listClassAttribute}"><c:out value="FizzBuzz!" /></li>
+					</c:when>
+					<c:when test="${number % 3 == 0}">
+						<c:set var='listClassAttribute' value='fizz' />
+						<li class="${listClassAttribute}"><c:out value="Fizz!" /></li>
+					</c:when>
+					<c:when test="${number % 5 == 0}">
+						<c:set var='listClassAttribute' value='buzz' />
+						<li class="${listClassAttribute}"><c:out value="Buzz!" /></li>
+					</c:when>
+					<c:otherwise>
+						<c:set var="listClassAttribute" value="" />
+						<li class="${listClassAttribute}"><c:out value="${number}" /></li>
+					</c:otherwise>
+				</c:choose>
+				
+				</c:forEach>
+				
+				
+				
+				
+				
+			 
 		</ul>
 	</body>
 </html>

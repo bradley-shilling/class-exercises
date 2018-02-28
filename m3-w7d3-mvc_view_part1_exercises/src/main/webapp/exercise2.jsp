@@ -18,6 +18,33 @@
 				
 				See exercise2-fibonacci.png for example output
 			 --%>
+			 
+			 <c:set var="firstFibber" value="0" />
+			 <c:set var="secondFibber" value="1" />
+			 <c:set var="queuedFibber" value="0" />
+			 
+			 
+			 <c:forEach begin="1" end="25" step="1" var="fib">
+				 <li><c:out value="${firstFibber} is the ${fib} number in the Fibonacci sequence " /></li>
+				 <c:set var="queuedFibber" value="${firstFibber + secondFibber}" />
+				 <c:set var="firstFibber" value="${secondFibber}" />
+				 <c:set var="secondFibber" value="${queuedFibber}" />
+					
+			</c:forEach>
+			 
+			 
+			 <%--
+			 for(int i=0; i < reallyCountToMe; i++) {
+				if (firstFibber <= reallyCountToMe) {
+					System.out.print(firstFibber + " ");
+					qeuedFibber = (firstFibber + secondFibber);
+					firstFibber = secondFibber;
+					secondFibber = qeuedFibber;
+				}
+				
+			} --%>
+			 
+			 
 		</ul>
 	</body>
 </html>
