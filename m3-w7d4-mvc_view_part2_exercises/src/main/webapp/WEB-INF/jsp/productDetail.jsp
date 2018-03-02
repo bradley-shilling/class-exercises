@@ -1,32 +1,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<c:set var="pageTitle" value="Product Tile View" />
+<!--${product.name}-->
+<c:set var="pageTitle" value="${product.name}" />
 <%@ include file="includes/header.jspf" %>
 <!-- Product Tiles View -->
        <!--  content here -->
-       <h2 class="main-title">Toy Department</h2>
-       <div class="wrapper">
-       <c:forEach var="product" items="${productList}">
-       <div class="grid-item">
+    
+     
        
-       
+       <div class="single-product">
        
   				<!-- image -->
-       			<c:url var="linkUrl"
-				value="/productDetail" >
-				<c:param name="productId" value="${product.productId}" />
-				</c:url>
-				<a href="${linkUrl }">
+       			
        			<c:url var="imageUrl"
 					value="/img/${product.getImageName()}" />
 				<img src="${imageUrl}" class="image">
-				</a>
-				<br />
-				<div class="title">
+				<div class="details">
 				<!-- name -->
 				<c:url var="linkUrl"
-				value="/productDetail" >
-				<c:param name="productId" value="${product.productId}" />
-				</c:url>
+				value="/productDetail?productId=${product.getProductId()}" />
 				<a href="${linkUrl }">
        			<strong><c:out value="${product.name}" /></strong>
 				</a>
@@ -39,15 +30,9 @@
        			<br />
        			<!-- mfr -->	
        			<span class="mfr"><c:out value="by ${product.manufacturer}" /></span>
-       			</div>
-       			 <!-- price -->		
-				<span class="price"><c:out value="$${product.price}" /></span>
-				<br />
-				<!-- weight -->
-       			<strong>Weight </strong> <c:out value="${product.weightInLbs} pounds" />
        			<br />
-       			<!-- rating -->
        			<span class="rating">
+       			<!-- rating -->
        			<c:choose>
 								<c:when
 									test="${product.getAverageRating()  >= 0.5 && product.getAverageRating() < 1.5 }">
@@ -85,8 +70,25 @@
 								</c:otherwise>
 							</c:choose>
 							</span>
-							</div>
-       	</c:forEach>
-       	</div>
+       			
+       			
+       			<div class="middle">
+       			 <!-- price -->		
+				<span class="price"><c:out value="$${product.price}" /></span>
+				<br />
+				
+				<!-- weight -->
+       			<strong>Weight </strong> <c:out value="${product.weightInLbs} pounds" />
+       			<br />
+       			</div>
+				
+				<!-- weight -->
+       			<strong>Description: </strong> <c:out value="${product.description}" />
+				
+       			</div>
+       			
+			</div>	
+		
+       
 
 <%@ include file="includes/footer.jspf" %>

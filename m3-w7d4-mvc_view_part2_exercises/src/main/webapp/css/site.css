@@ -56,3 +56,117 @@ section {
 	background-color: #FFF;
 	border-radius: 7px;
 }
+
+/* universal css */
+#main-content {
+	padding:20px;
+}
+.main-title {
+	font-weight: 400;
+	font-size: 36px;
+	padding: 10px 0 30px 0;
+	margin: 0;
+}
+.price {
+	color: rgba(204, 7, 5, 1);
+}
+.red {
+	color:red;
+}
+.top-seller {
+	text-transform:Uppercase;
+	font-size:12px;
+}
+.mfr {
+	color:grey;
+}
+#main-content a:link, #main-content a:visited {
+	text-decoration:none;
+	color:#000;
+}
+
+#main-content a:hover {
+	text-decoration:underline;
+}
+/* list specific css */
+.list-product {
+	text-align:left;
+	font-size: 14px;
+}
+.list-product .image {
+	display:inline-block;
+	max-width:20%;
+	padding-right:20px;
+}
+.list-product .details{
+	display:inline-block;
+	vertical-align:top;
+}
+.rating img {
+	width:100px;
+	padding: 5px 0;
+}
+
+
+/* tile specific css */
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  text-align: center;
+}
+.grid-item img {
+	max-width:60%;
+}
+.grid-item .title{
+	padding: 0 0 10px 0;
+}
+
+/* table specific css */
+ 
+table{
+	width: 100% !important;
+	border: none;
+}
+table img {
+	max-width:50%;
+}
+table tr {
+	vertical-align: center;
+}
+table tr th{
+	width:15%;
+	padding: 0px;
+	background-color: white;
+}
+table tr td {
+	padding: 0px;
+}
+
+table tr:nth-child(even) {
+	background-color:rgba(205,205,205,1);
+}
+
+
+/* detail specific css */
+.single-product {
+	text-align:left;
+}
+.single-product .image {
+	max-width:35%;
+	padding-right:20px;
+}
+.single-product .details {
+	vertical-align:top;
+	display:inline-block;
+	max-width:60%;
+}
+.single-product .middle {
+	padding:10px 0;
+}
