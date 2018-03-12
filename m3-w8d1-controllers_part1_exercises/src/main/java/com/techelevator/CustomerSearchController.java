@@ -1,6 +1,9 @@
 package com.techelevator;
 
 import com.techelevator.dao.CustomerDao;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,5 +16,16 @@ public class CustomerSearchController {
 
     @Autowired
     private CustomerDao customerDao;
+    
+    @RequestMapping(path="/customer", method=RequestMethod.GET)
+    public String showSearchForm() {
+        return "customerList";
+    }
+    
+    @RequestMapping(path="/customerSearch", method=RequestMethod.GET)
+    public String showCustomerList(@RequestParam String search, String sort, ModelMap modelHolder) {
+    	modelHolder.put("customer", customerDao.searchAndSortCustomers(search, sort));
+        return "customerList";  
+    }
 
 }
