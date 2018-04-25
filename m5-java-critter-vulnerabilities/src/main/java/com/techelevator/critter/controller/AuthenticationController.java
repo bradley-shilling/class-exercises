@@ -30,11 +30,16 @@ public class AuthenticationController {
 	
 	@RequestMapping(path="/login", method=RequestMethod.POST)
 	public String login(@RequestParam String userName, 
-						@RequestParam String password, 
+						@RequestParam String password,
+						@RequestParam(required=false) String destination,
 						ModelMap model) {
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
 			model.put("currentUser", userName);
-			return "redirect:/users/"+userName;
+			if (destination != null && ! destination.isEmpty() && destination.startsWith("http://localhost:8080/")) { // starts with checks for current domain
+				return "redirect:"+ destination;
+			} else {
+				return "redirect:/users/"+userName;
+			}
 		} else {
 			return "redirect:/login";
 		}
@@ -43,7 +48,8 @@ public class AuthenticationController {
 	@RequestMapping(path="/logout", method=RequestMethod.POST)
 	public String logout(ModelMap model, HttpSession session) {
 		model.remove("currentUser");
-		session.removeAttribute("currentUser");
+		//session.removeAttribute("currentUser");
+		session.invalidate();
 		return "redirect:/";
 	}
 }

@@ -46,9 +46,9 @@ public class JDBCMessageDAO implements MessageDAO {
 		String sqlSelectPublicMessagesByUser = "SELECT * "+
 											   "FROM message "+
 											   "WHERE private = FALSE "+
-											   "AND sender_name = '"+userName+"' "+
+											   "AND sender_name = ? " +
 											   "ORDER BY create_date DESC ";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectPublicMessagesByUser);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectPublicMessagesByUser, userName);
 		return mapRowSetToMessages(results);
 	}
 	
@@ -141,6 +141,22 @@ public class JDBCMessageDAO implements MessageDAO {
 		result.next();
 		Long id = result.getLong(1);
 		return id;
+	}
+
+	@Override
+	public void deleteMessage(long id) {
+		jdbcTemplate.update("DELETE FROM message WHERE message_id=?", id);
+		
+	}
+
+	@Override
+	public Message getMessageById(long id) {
+		String sqlSelectMessage = "SELECT * "+
+				   "FROM message "+
+				   "WHERE message_id=?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSelectMessage, id);
+		results.next();
+		return mapRowToMessage(results);
 	}
 
 }

@@ -18,30 +18,30 @@
 
 
     <div id="task-list">
-        <form id="new-task" onsubmit="addTask()" autocomplete="ignore">
-            <input type="checkbox" onchange="toggleAll()" />
+        <form id="new-task" autocomplete="ignore">
+            <input type="checkbox" id="toggle" />
             <input autocomplete="false" type="text" name="newTaskValue" placeholder="What needs to be done?" />
         </form>
         <div class="task">
             <input onchange="completeTask()" type="checkbox">
             <label onclick="labelClick(this)">Learn JavaScript</label>
             <!-- Remove this before distributing -->
-            <input onkeyup="checkForEnter(this)" type="text" class="hidden" />
-            <span onclick="deleteTask(this)">x</span>
+            <input type="text" class="hidden" />
+            <span class="delete">x</span>
         </div>
         <div class="task">
             <input onchange="completeTask()" type="checkbox">
             <label onclick="labelClick(this)">Learn Angular</label>
             <!-- Remove this before distributing -->
-            <input onkeyup="checkForEnter(this)" type="text" class="hidden" />
-            <span onclick="deleteTask(this)">x</span>
+            <input type="text" class="hidden" />
+            <span class="delete">x</span>
         </div>
         <div class="task">
             <input onchange="completeTask()" type="checkbox">
             <label onclick="labelClick(this)">Review C#/Java</label>
             <!-- Remove this before distributing -->
-            <input onkeyup="checkForEnter(this)" type="text" class="hidden" />
-            <span onclick="deleteTask(this)">x</span>
+            <input type="text" class="hidden" />
+            <span class="delete">x</span>
         </div>
     </div>
 
@@ -49,6 +49,16 @@
 
 
     <!-- Remove this before distributing -->
+
+    <div class="task" style="display:none;" id="taskTemplate">
+        <input onchange="completeTask()" type="checkbox">
+        <label onclick="labelClick(this)">Review C#/Java</label>
+        <!-- Remove this before distributing -->
+        <input type="text" class="hidden" />
+        <span class="delete">x</span>
+    </div>
+
+    <!--
     <template id="newTaskTemplate">
         <div class="task">
             <input onchange="completeTask()" type="checkbox">
@@ -57,15 +67,16 @@
             <span onclick="deleteTask(this)">x</span>
         </div>
     </template>
+-->
 
     <div id="requirements">
         <h2>Requirements</h2>
         <ol>
-            <li>When I check an item, the label is crossed out.</li>
-            <li>When I click an x next to the label, the item is deleted.</li>
-            <li>When I enter an item into the textbox and press enter, it is added to the list.</li>
+            <li style="color:red;">When I check an item, the label is crossed out.</li>
+            <li style="color:red;">When I click an x next to the label, the item is deleted.</li>
+            <li style="color:red;">When I enter an item into the textbox and press enter, it is added to the list.</li>
             <li>When I click on the button next to the textbox, all of the items are marked completed.</li>
-            <li>When I click on a label, it turns into a textbox for me to modify the item.</li>
+            <li style="color:red;">When I click on a label, it turns into a textbox for me to modify the item.</li>
             <li>When I provide an empty value for the textbox, the item is deleted</li>
             <li>When there are completed tasks, a "clear completed" button shows up that can remove them all.</li>
             <li>When I click "active", the todo list is filtered to show items that have not been completed.</li>

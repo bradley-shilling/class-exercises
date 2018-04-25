@@ -6,7 +6,7 @@ DROP SEQUENCE message_message_id_seq;
 CREATE TABLE app_user (
   user_name varchar(32) NOT NULL,
   password varchar(32) NOT NULL,
-  salt varchar(255) NOT NULL,
+  salt varchar(255),
   CONSTRAINT pk_app_user_username PRIMARY KEY (user_name)
 );
 

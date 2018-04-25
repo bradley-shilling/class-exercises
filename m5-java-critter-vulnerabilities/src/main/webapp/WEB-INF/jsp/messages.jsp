@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<h2>Latest Messages From ${param.userName}</h2>
+<h2>Latest Messages From <c:out value="${param.userName}" /></h2>
 
 <ol class="message-list">
 	<c:forEach items="${messages}" var="message">
